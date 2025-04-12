@@ -18,21 +18,24 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
-                .requestMatchers("/users/**").hasRole("ADMIN")
-                .anyRequest().permitAll()
-
-        ).formLogin(formLogin -> formLogin
-                .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/users", true)
-        );
-
+                        .requestMatchers("/users/**").hasRole("ADMIN")
+                        .requestMatchers("/styles.css", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/login").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/login").permitAll()
+                        .defaultSuccessUrl("/tasks", true)
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login").permitAll()
+                );
 
         return http.build();
     }
-
-
-
 }

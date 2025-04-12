@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/task")
+@RequestMapping("/api/tasks")
 public class TaskController {
 
     private final TaskService taskService;
@@ -32,7 +31,4 @@ public class TaskController {
     public void deleteTask(@PathVariable int taskId, @AuthenticationPrincipal User user) {
         taskService.deleteTask(taskId, user);
     }
-
-
-
 }

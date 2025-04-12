@@ -1,13 +1,11 @@
-/* Reset default margins and padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
 body {
-    font-family: 'Roboto', Arial, sans-serif; /* Use a modern font */
+    font-family: 'Roboto', Arial, sans-serif;
     background-color: #f0f2f5;
     display: flex;
     justify-content: center;
@@ -15,14 +13,12 @@ body {
     min-height: 100vh;
 }
 
-/* Login container */
 .login-container {
     text-align: center;
     width: 100%;
     max-width: 400px;
 }
 
-/* Heading styling */
 h1 {
     font-size: 2.5rem;
     color: #1a1a1a;
@@ -30,7 +26,6 @@ h1 {
     font-weight: 700;
 }
 
-/* Form styling */
 .login-form {
     background-color: #ffffff;
     padding: 2rem;
@@ -41,12 +36,10 @@ h1 {
     gap: 1rem;
 }
 
-/* Form group styling */
 .form-group {
     text-align: left;
 }
 
-/* Label styling */
 .form-group label {
     display: block;
     font-size: 0.9rem;
@@ -55,7 +48,6 @@ h1 {
     font-weight: 500;
 }
 
-/* Input styling */
 .form-group input {
     width: 100%;
     padding: 0.75rem;
@@ -65,14 +57,12 @@ h1 {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Input focus effect */
 .form-group input:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
     outline: none;
 }
 
-/* Button styling */
 .form-group button {
     padding: 0.75rem;
     background-color: #007bff;
@@ -84,17 +74,16 @@ h1 {
     transition: background-color 0.3s, transform 0.1s;
 }
 
-/* Button hover effect */
 .form-group button:hover {
     background-color: #0056b3;
     transform: translateY(-1px);
 }
 
-/* Responsive design */
 @media (max-width: 480px) {
     h1 {
         font-size: 2rem;
     }
+
     .login-form {
         padding: 1.5rem;
     }

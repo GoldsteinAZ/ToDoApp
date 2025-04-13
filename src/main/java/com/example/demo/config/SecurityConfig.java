@@ -25,16 +25,16 @@ public class SecurityConfig {
                         .requestMatchers("/styles.css", "/js/**", "/images/**").permitAll()
                         .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated()
-                )
-                .formLogin(formLogin -> formLogin
-                        .loginPage("/login").permitAll()
-                        .defaultSuccessUrl("/tasks", true)
-                        .permitAll()
-                )
-                .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login").permitAll()
-                );
+                        )
+                        .formLogin(formLogin -> formLogin
+                                .loginPage("/login").permitAll()
+                                .defaultSuccessUrl("/tasks", true)
+                                .permitAll()
+                        )
+                        .logout(logout -> logout
+                                .logoutUrl("/logout")
+                                .logoutSuccessUrl("/login").permitAll()
+                        );
 
         return http.build();
     }

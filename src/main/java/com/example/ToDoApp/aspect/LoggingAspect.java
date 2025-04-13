@@ -1,4 +1,4 @@
-package com.example.demo.aspect;
+package com.example.ToDoApp.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -15,19 +15,14 @@ public class LoggingAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-    @Before( "execution(* com.example.demo.controller.*.*(..))" )
+    @Before( "execution(* com.example.ToDoApp.controller.*.*(..))" )
     public void logBefore(JoinPoint joinPoint) {
         logger.info("Before: {}", joinPoint.getSignature().getName());
     }
 
-    @AfterReturning(pointcut = "execution(* com.example.demo.controller.*.*(..))", returning = "result")
+    @AfterReturning(pointcut = "execution(* com.example.ToDoApp.controller.*.*(..))", returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         logger.info("After: {} returned with value {}", joinPoint.getSignature().getName(), result);
     }
-
-
-
-
-
 }
 

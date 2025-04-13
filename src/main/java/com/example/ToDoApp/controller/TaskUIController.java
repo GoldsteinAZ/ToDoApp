@@ -1,8 +1,8 @@
-package com.example.demo.controller;
+package com.example.ToDoApp.controller;
 
-import com.example.demo.model.Task;
-import com.example.demo.model.User;
-import com.example.demo.service.TaskService;
+import com.example.ToDoApp.model.Task;
+import com.example.ToDoApp.model.User;
+import com.example.ToDoApp.service.TaskService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +34,7 @@ public class TaskUIController {
         return "redirect:/tasks"; // Refresh the page
     }
 
-    @PostMapping("/delete/{taskId}") // Supports POST
+    @PostMapping("/delete/{taskId}")
     public String deleteTask(@PathVariable int taskId, @AuthenticationPrincipal User user) {
         taskService.deleteTask(taskId, user);
         return "redirect:/tasks";

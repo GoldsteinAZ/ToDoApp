@@ -10,6 +10,8 @@ public class Task {
     private int id;
 
     private String title;
+
+    @Column(length = 1000)
     private String description;
 
     @ManyToOne

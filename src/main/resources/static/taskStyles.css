@@ -42,19 +42,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem; /* Dodaj odstęp między elementami flex */
+}
+
+.task-content { /* Dodaj styl dla nowego diva */
+    flex-grow: 1; /* Pozwól temu elementowi rosnąć */
+    min-width: 0; /* Kluczowe dla umożliwienia zmniejszania i zawijania w flexbox */
 }
 
 .task-item h3 {
     margin: 0 0 0.5rem 0;
     color: #333;
+    /* Usuń potencjalne właściwości wpływające na zawijanie, jeśli istnieją */
 }
 
 .task-item p {
     margin: 0;
     color: #666;
-    flex-grow: 1;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    /* Usunięto flex-grow, margin-left, margin-right - teraz kontroluje to .task-content */
+    overflow-wrap: break-word; /* Upewnij się, że to jest */
+    word-wrap: break-word; /* Dla starszych przeglądarek */
+    word-break: break-all; /* Alternatywa/dodatek, jeśli break-word nie działa samo */
+}
+
+.task-actions { /* Dodaj styl, aby zapobiec kurczeniu się przycisków */
+    flex-shrink: 0;
 }
 
 .task-actions form {
@@ -107,6 +119,7 @@ body {
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
+    resize: vertical; /* Dodaj tę linię */
 }
 
 .add-task-form input[type="text"]:focus,

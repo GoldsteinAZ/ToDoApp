@@ -44,10 +44,10 @@
             <p>Nie masz jeszcze żadnych zadań.</p>
         </div>
         <div th:each="task : ${tasks}" class="task-item">
-            <div>
+            <div class="task-content"> <!-- Dodaj ten div -->
                 <h3 th:text="${task.title}">Tytuł zadania</h3>
                 <p th:text="${task.description}">Opis zadania</p>
-            </div>
+            </div> <!-- Zamknij ten div -->
             <div class="task-actions">
                 <form th:action="@{/tasks/delete/{id}(id=${task.id})}" method="post">
                     <button type="submit">Usuń</button>
